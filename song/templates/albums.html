@@ -1,20 +1,44 @@
-{% extends "base_generic.html" %}
-{% block title %}<title>Albums</title>{% endblock %}
+{% extends 'base_generic.html' %}
+
+{% block title %}
+<title>
+    Albumss
+</title>
+{% endblock %}
+
 {% block content %}
-<div class="sidebar-nav">
-<body style="background-color: bisque;">
-<h1 style="color: brown;">The Song's Album : </h1>
-<ul>
-{% for album in albums %}
-    <li style="color:crimson"><strong>{{ album }}</strong> {
-        <a href="{% url 'edit_album' album.id %}">Edit</a> -
-        <a href="{% url 'delete_album' album.id %}">Delete</a> }
-    </li>
-{% endfor %}
-</ul>
-<p>
-    <a href="{% url 'add_album' %}">{ Add Album }</a>
-</p>
-</body>
+<div class="col-12" style="margin-top:2%; ">
+    <table class="table table-striped table-bordered">
+        <thead class="table-danger">
+            <tr>
+                <td>Album's Title</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for album in page_obj %}
+            <tr class="table-info">
+                <td>{{ album.name }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; First</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
 </div>
 {% endblock %}
+

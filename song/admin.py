@@ -1,8 +1,10 @@
 from django.contrib import admin
-from song.models import singer, song, album
+from song.models.singer import Singer
+from song.models.song import Song
+from song.models.album import Album
 
 
-admin.site.register(singer.Singer)
-admin.site.register(song.Song)
-admin.site.register(album.Album)
+admin.site.register(Singer)
+admin.site.register(Song)
+admin.site.register(Album)
 # Register your models here.
