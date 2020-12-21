@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="sidebar-nav">
+<body style="background-color: bisque;">
+<h1 style="color: brown;">Are you sure you want to delete : "{{singer}}" ?</h1>
+<center>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Confirm" class="btn btn-success"/>
+    <a href="{% url 'singers' %}" class="btn btn-danger">Cancel</a>
+</form>
+</center>
+</body>
+</div>
+{% endblock %}

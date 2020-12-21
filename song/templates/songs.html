@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>Songs</title>{% endblock %}
+{% block content %}
+<div class="sidebar-nav">
+<body style="background-color: bisque;">
+<h1 style="color: brown;">Recommended Song from Us :</h1>
+<ul>
+{% for song in songs %}
+    <li style="color:crimson"><strong>{{ song.title }}</strong> ({{song.singer}} ) {
+        <a href="{% url 'edit_song' song.id %}" >Edit</a> - 
+        <a href="{% url 'delete_song' song.id %}">Delete</a> }</li>
+{% endfor %}
+</ul>
+<p>
+    <a href="{% url 'add_song' %}">{ Add Song }</a> 
+</p>
+</body>
+</div>
+{% endblock %}

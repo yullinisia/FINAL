@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block title %}<title>A N Y</title>{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Add additional CSS in static file -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<style>
+    .vertical-menu {
+      width: 190px;
+    }
+    
+    .vertical-menu a {
+      background-color:burlywood;
+      color:white;
+      display: block;
+      padding: 12px;
+      text-decoration: none;
+    }
+    
+    .vertical-menu a:hover {
+      background-color:darksalmon;
+    }
+    
+    </style>
+
+<body style="background-color: bisque;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                {% block sidebar %}
+                
+                <div class="vertical-menu">
+                <ul class="sidebar-nav">
+                    <li><b><a href="{% url 'record' %}">Record's List</a></b></li>
+                    <li><b><a href="{% url 'songs' %}">Song's List</a></b></li>
+                    <li><b><a href="{% url 'singers' %}">Singer's List</a></b></li>
+                    <li><b><a href="{% url 'albums' %}">Album's List</a></b></li>
+                </ul>
+                </div>
+                {% endblock %}
+                
+            </div>
+            <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
+        </div>
+    </div>
+</body>
+
+</html>

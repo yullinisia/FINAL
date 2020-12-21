@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+{% if type != 'edit' %}
+<body style="background-color: bisque;">
+    <div class="sidebar-nav">
+<h1 style="color: brown;">Add your recommended song</h1>
+{% else %}
+<div class="sidebar-nav">
+<h1 style="color: brown;">Edit your recommended song</h1>
+{% endif %}
+</div>
+<form action="" method="POST">
+    <div class="sidebar-nav">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <!-- check if type is edit, we display text Edit instead of Add -->
+    {% if type != 'edit' %}
+    <input type="submit" value="Add" class="btn btn-primary"/>
+    {% else %}
+    <input type="submit" value="Update" class="btn btn-primary"/>
+    {% endif %}
+    <a href="{% url 'songs' %}" class="btn btn-danger">Cancel</a>
+</div>
+</div>
+</form>
+</body>
+{% endblock %}
