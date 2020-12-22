@@ -1,32 +1,19 @@
-{% extends 'base_generic.html' %}
-
-{% block title %}
-<title>
-    Singers
-</title>
-{% endblock %}
-
+{% extends "base_generic.html" %}
+{% block title %}<title>Singers</title>{% endblock %}
 {% block content %}
-<div class="col-12" style="margin-top:2%;">
-    <table class="table table-sm table-bordered">
-        <thead class="table-primary">
-            <tr>
-                <td>Singer Name</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% for singer in singers %}
-            <tr class="table-info">
-                <td>{{ singer.first_name }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <form method="post" action="">
-        {% csrf_token %}
-        <input name="name" type="text"/>
-        <button type="submit">Search</button>
-    </form>
+<div class="sidebar-nav">
+<body style="background-color: bisque;">
+<h1 style="color: brown;">The Song's Singer : </h1>
+<ul>
+{% for singer in singers %}
+    <li style="color:crimson"><strong>{{ singer }}</strong> {
+        <a href="{% url 'edit_singer' singer.id %}">Edit</a> - 
+        <a href="{% url 'delete_singer' singer.id %}">Delete</a> }</li>
+{% endfor %}
+</ul>
+<p>
+    <a href="{% url 'add_singer' %}">{ Add Singer }</a>
+</p>
+</body>
 </div>
 {% endblock %}
-
