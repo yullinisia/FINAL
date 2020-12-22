@@ -9,16 +9,13 @@ from song.forms import SongForm
 def index(request):
     if request.method == 'POST':
         req = request.POST.dict()
-        # POST, get the request body parameter and filter pizza
         name = req['name']
         songs = Song.objects.filter(name__contains=name)
     else:
-        songs = Song.objects.all()  # get all pizzas
-    # put in data dictionary
+        songs = Song.objects.all()
     data = {
         'songs': songs,
     }
-    # render to our html
     return render(request, 'songs.html', context=data)
 
 
@@ -26,7 +23,7 @@ def add_song(request):
     if request.method == 'POST':
         form = SongForm(request.POST)
         if form.is_valid():
-            form.save()  # directly save the form
+            form.save()
             return HttpResponseRedirect(reverse('songs'))
     else:
         form = SongForm()
