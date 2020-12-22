@@ -13,5 +13,5 @@ class Meta:
     app_label = 'song'
 
 def __str__(self):
-       return f'{self.title, self.singer, self.album}'
+       return f'{self.title}'
 

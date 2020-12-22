@@ -7,7 +7,7 @@
 <h1 style="color: brown;">The Song's Album : </h1>
 <ul>
 {% for album in albums %}
-    <li style="color:crimson"><strong>{{ album }}</strong> {
+    <li style="color:crimson"><strong>{{ album.name }}</strong> {
         <a href="{% url 'edit_album' album.id %}">Edit</a> -
         <a href="{% url 'delete_album' album.id %}">Delete</a> }
     </li>
