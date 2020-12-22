@@ -6,7 +6,7 @@
 <h1 style="color: brown;">The Song's Singer : </h1>
 <ul>
 {% for singer in singers %}
-    <li style="color:crimson"><strong>{{ singer.first_name }}</strong> {
+    <li style="color:crimson"><strong>{{ singer }}</strong> {
         <a href="{% url 'edit_singer' singer.id %}">Edit</a> - 
         <a href="{% url 'delete_singer' singer.id %}">Delete</a> }</li>
 {% endfor %}
