@@ -1,0 +1,46 @@
+{% extends "base_generic.html" %} 
+{% block content %}
+<div class="col-12">
+    <div class="row text-center">
+    <div class="col-12">
+        {% if form.errors %}
+        {% if user_exists_error %}
+        <p>{{ user_exists_error }}</p>
+        {% else %}
+        <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    {% endif %}
+
+    {% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+{% else %}
+<p>Please Login to see page</p>
+{% endif %}
+{% endif %}
+</div>
+</div>
+
+
+<div class="row text-center">
+    <div class="col-12 text-center">
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <table>
+                    <p>{{ form.username.label_tag }}
+                    {{ form.username }}</p>
+                    <p>{{ form.password.label_tag }}
+                    {{ form.password }}</p>
+                
+            </table>
+        
+            <input type="submit" value="login"/>
+            <input type="hidden" name="next" value="{{ next }}"/>
+        </form>
+        <p>
+            Don't Have an Account? <a href="{% url 'register' %}">Sign Up</a>
+        </p>
+    </div>
+</div>
+</div>
+{% endblock %}
