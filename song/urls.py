@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from song.controllers import song_controller, album_controller, singer_controller, record_controller
+from song.controllers import song_controller, album_controller, singer_controller, record_controller, registration_controller
 
 urlpatterns = [
     path('', record_controller.record, name='record'),
@@ -16,4 +16,5 @@ urlpatterns = [
     path('album/add', album_controller.add_album, name='add_album'),
     path('album/edit/<int:album_id>', album_controller.edit_album, name='edit_album'),
     path('album/delete/<int:album_id>', album_controller.delete_album, name='delete_album'),
+    path('register', registration_controller.index, name='register'),
 ]
