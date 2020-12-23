@@ -124,3 +124,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'ylnsiaaa@gmail.com'
+EMAIL_HOST_PASSWORD = 'Yulli2002'
+
+from django.core.mail import send_mail
+send_mail('Hello', 'you have successfully registered to our website',
+          'ylnsiaaa@gmail.com', ['yullinisia0@mail.com'],                    
+          fail_silently=False)
