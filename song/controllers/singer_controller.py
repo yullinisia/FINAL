@@ -4,6 +4,9 @@ from django.forms.models import model_to_dict
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from song.forms import SingerForm
+from django.contrib.auth.decorators import login_required
+@login_required
+
 
 def index(request):
     singers = Singer.objects.all()  
