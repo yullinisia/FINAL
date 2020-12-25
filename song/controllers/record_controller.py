@@ -2,6 +2,7 @@ from django.shortcuts import render
 from song.models import Song, Singer, Album
 
 
+
 def record(request):
     # we check the session with key ‘num_visits’, if doesn’t exist we set to 1
     num_visits = request.session.get('num_visits', 1)
