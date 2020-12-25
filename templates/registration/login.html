@@ -15,15 +15,14 @@
     {% if user.is_authenticated %}
     <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
 {% else %}
-<p>Please Login to see page</p>
 {% endif %}
 {% endif %}
 </div>
 </div>
-
 
 <div class="row text-center">
     <div class="col-12 text-center">
+        <p>Please Login to see page</p>
         <form method="POST" action="{% url 'login' %}">
             {% csrf_token %}
             <table>
