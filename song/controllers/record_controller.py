@@ -14,4 +14,4 @@ def record(request):
         'num_singers': num_singers,
         'num_albums': num_albums,
     }
-    return render(request, 'record.html', context=context)
+    return render(request, 'record/record.html', context=context)
