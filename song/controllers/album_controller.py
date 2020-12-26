@@ -44,7 +44,7 @@ def edit_album(request, album_id):
         'form': form,
         'type': 'edit',
     }
-    return render(request, 'album_form.html', context=context)
+    return render(request, 'album/album_form.html', context=context)
 
 def delete_album(request, album_id):
     album = Album.objects.get(pk=album_id)
@@ -54,4 +54,4 @@ def delete_album(request, album_id):
     context = {
         'album': album
     }
-    return render(request, 'album_delete_form.html', context=context)
+    return render(request, 'album/album_delete_form.html', context=context)
