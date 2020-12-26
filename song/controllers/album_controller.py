@@ -13,7 +13,7 @@ def index(request):
     data = {
         'albums': albums,
     }
-    return render(request, 'albums.html', data)
+    return render(request, 'album/albums.html', data)
 
 def add_album(request):
     if request.method == 'POST':
@@ -27,7 +27,7 @@ def add_album(request):
     context = {
         'form': form
     }
-    return render(request, 'album_form.html', context=context)
+    return render(request, 'album/album_form.html', context=context)
 
 def edit_album(request, album_id):
     if request.method == 'POST':
