@@ -17,7 +17,7 @@ def index(request):
     data = {
         'songs': songs,
     }
-    return render(request, 'songs.html', context=data)
+    return render(request, 'song/songs.html', context=data)
 
 
 def add_song(request):
@@ -32,7 +32,7 @@ def add_song(request):
     context = {
         'form': form
     }
-    return render(request, 'song_form.html', context=context)
+    return render(request, 'song/song_form.html', context=context)
 
 
 def edit_song(request, song_id):
@@ -50,7 +50,7 @@ def edit_song(request, song_id):
         'form': form,
         'type': 'edit',
     }
-    return render(request, 'song_form.html', context=context)
+    return render(request, 'song/song_form.html', context=context)
 
 
 def delete_song(request, song_id):
@@ -61,5 +61,5 @@ def delete_song(request, song_id):
     context = {
         'song': song,
     }
-    return render(request, 'song_delete_form.html', context=context)
+    return render(request, 'song/song_delete_form.html', context=context)
 

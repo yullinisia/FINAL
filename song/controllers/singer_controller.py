@@ -13,7 +13,7 @@ def index(request):
     data = {
         'singers': singers,
     }
-    return render(request, 'singers.html', context=data)
+    return render(request, 'singer/singers.html', context=data)
 
 def add_singer(request):
     if request.method == 'POST':
@@ -27,7 +27,7 @@ def add_singer(request):
     context = {
         'form': form
     }
-    return render(request, 'singer_form.html', context=context)
+    return render(request, 'singer/singer_form.html', context=context)
 
 def edit_singer(request, singer_id):
     if request.method == 'POST':
@@ -44,7 +44,7 @@ def edit_singer(request, singer_id):
         'form': form,
         'type': 'edit',
     }
-    return render(request, 'singer_form.html', context=context)
+    return render(request, 'singer/singer_form.html', context=context)
 
 
 def delete_singer(request, singer_id):
@@ -55,4 +55,4 @@ def delete_singer(request, singer_id):
     context = {
         'singer': singer
     }
-    return render(request, 'singer_delete_form.html', context=context)
+    return render(request, 'singer/singer_delete_form.html', context=context)
