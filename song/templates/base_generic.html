@@ -25,11 +25,24 @@
             <li class="nav-item"><b><a class="nav-link" href="{% url 'singers' %}">Singer's List</a></b></li>
             <li class="nav-item"><b><a class="nav-link" href="{% url 'albums' %}">Album's List</a></b></li>
             </ul>
+            <div style="text-align: right;">
+              {% if user.is_authenticated %}
+              Hello, {{ user.get_username }}
+              <a href="{% url 'logout' %}?next={{ request.path }}">Log Out</a>
+              {% else %}
+              {% if 'login' in request.path %}
+              <a href="{% url 'login' %}?next={{ '/' }}">Log In</a>
+              {% else %}
+              <a href="{% url 'login' %}?next={{ request.path }}">Log In</a>
+              {% endif %}
+              {% endif %}
+          </div>
         </nav>
         <div class="container-fluid">
             
                 {% block content %}{% endblock %}
                 </div>
         </div>
+        
 </body>
 </html>
