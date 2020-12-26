@@ -1,5 +1,4 @@
 from django.urls import path
-from . import views
 from song.controllers import song_controller, album_controller, singer_controller, record_controller, registration_controller
 
 urlpatterns = [
