@@ -10,8 +10,8 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     if request.method == 'POST':
         req = request.POST.dict()
-        name = req['name']
-        songs = Song.objects.filter(name__contains=name)
+        title = req['title']
+        songs = Song.objects.filter(title__icontains=title)
     else:
         songs = Song.objects.all()
     data = {

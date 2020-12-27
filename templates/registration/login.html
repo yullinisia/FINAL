@@ -1,45 +1,81 @@
-{% extends "base_generic.html" %} 
-{% block content %}
-<div class="col-12">
-    <div class="row text-center">
-    <div class="col-12">
-        {% if form.errors %}
-        {% if user_exists_error %}
-        <p>{{ user_exists_error }}</p>
-        {% else %}
-        <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
-    {% endif %}
+<!DOCTYPE html>
+<html lang="en">
 
-    {% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
-{% else %}
-{% endif %}
-{% endif %}
-</div>
-</div>
+<head>
+    {% block title %}<title>LOGIN</title>{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
 
-<div class="row text-center">
-    <div class="col-12 text-center">
-        <p>Please Login to see page</p>
-        <form method="POST" action="{% url 'login' %}">
-            {% csrf_token %}
-            <table>
-                    <p>{{ form.username.label_tag }}
-                    {{ form.username }}</p>
-                    <p>{{ form.password.label_tag }}
-                    {{ form.password }}</p>
-                
-            </table>
-        
-            <input type="submit" value="login"/>
-            <input type="hidden" name="next" value="{{ next }}"/>
-        </form>
-        <p>
-            Don't Have an Account? <a href="{% url 'register' %}">Sign Up</a>
-        </p>
-    </div>
-</div>
-</div>
-{% endblock %}
+<body style="background-color: silver;">
+    <nav class="navbar navbar-expand-sm navbar-custom">
+        <a class="navbar-brand" href="#"><b>ANY</b></a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><b><a class="nav-link" href="{% url 'record' %}">Record's List</a></b></li>
+                <li class="nav-item"><b><a class="nav-link"  href="{% url 'songs' %}">Song's List</a></b></li>
+                <li class="nav-item"><b><a class="nav-link" href="{% url 'singers' %}">Singer's List</a></b></li>
+                <li class="nav-item"><b><a class="nav-link" href="{% url 'albums' %}">Album's List</a></b></li>
+            </ul>
+        </div>
+            <div>
+                {% if user.is_authenticated %}
+                <b style="color: silver">| Hello, {{ user.get_username }} - </b>
+                <a type="button" class="btn btn-dark" href="{% url 'logout' %}?next={{ request.path }}">Log Out</a>
+                {% else %}
+                {% if 'login' in request.path %}
+                <a  type="button" class="btn btn-dark" href="{% url 'login' %}?next={{ '/' }}">Log In</a>
+                {% else %}
+                <a  type="button" class="btn btn-dark" href="{% url 'login' %}?next={{ request.path }}">Log In</a>
+                {% endif %}
+                {% endif %}
+            </div>
+        </nav>
+        <div class="container-fluid">
+        <div class="col-12">
+            <div class="row text-center">
+            <div class="col-12 text-center">
+            <div class="login-page">
+                <div class="form">
+                  <div class="login">
+                    <div class="login-header">
+                      <h3>LOGIN</h3>
+                    </div>
+                  </div>
+                  <form class="login-form" method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <p style="text-align: left;">Username:</p>
+                    {{ form.username }}
+                    <p style="text-align: left;">Password:</p>
+                    {{ form.password }}
+                    <input type="submit" value="LOGIN"/>
+                    <input type="hidden" name="next" value="{{ next }}"/>
+                    <p class="message">Not registered? <a href="{% url 'register' %}">Create an account</a></p>
+                  </form>
+                  {% if form.errors %}
+                    {% if user_exists_error %}
+                    <p>{{ user_exists_error }}</p>
+                    {% else %}
+                    <p>Your username and password didn't match. Please try again.</p>
+                    {% endif %}
+                    {% endif %}
+                    {% if next %}
+                    {% if user.is_authenticated %}
+                    <p>Your account doesn't have access to this page. To proceed, please login with an account that has access.</p>
+                    {% else %}
+                    {% endif %}
+                    {% endif %}
+                </div>
+              </div> 
+        </div>
+        </div>
+        </div>
+        </div>
+</body>
+</html>

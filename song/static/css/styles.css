@@ -1,12 +1,11 @@
 .sidebar-nav {
-    margin-top: 50px;
-    margin-left: 50px;
-    padding: 0;
+    margin-top: 20px;
+    padding: 0 6% 0;
     list-style: none;
 }
 
 .navbar-custom {
-    background-color:burlywood;
+    background-color:black;
 }
 /* change the brand and text color */
 .navbar-custom .navbar-brand,
@@ -15,10 +14,65 @@
 }
 /* change the link color */
 .navbar-custom .navbar-nav .nav-link {
-    color:brown;
+    color:gray;
 }
 /* change the color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
     color: #ffffff;
 }
+.register-page{
+    width: 380px;
+    height: 200px;
+    padding: 2% 0 0;
+    margin: auto;
+}
+
+  .login-page {
+    width: 350px;
+    height: 200px;
+    padding: 5% 0 0;
+    margin: auto;
+  }
+  .login-page .form .login{
+    margin-top: -31px;
+  margin-bottom: 26px;
+  }
+  .form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 38px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  .form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background-color: gainsboro;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+.form .message {
+    margin: 15px 0 0;
+    color: #b3b3b3;
+    font-size: 12px;
+  }
+.form .message a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 300px;
+    margin: 0 auto;
+  }

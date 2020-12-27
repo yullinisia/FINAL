@@ -1,8 +1,9 @@
 from django.urls import path
-from song.controllers import song_controller, album_controller, singer_controller, record_controller, registration_controller
+from song.controllers import song_controller, album_controller, singer_controller, record_controller, registration_controller, home_controller
 
 urlpatterns = [
-    path('', record_controller.record, name='record'),
+    path('', home_controller.index, name='index'),
+    path('record/', record_controller.record, name='record'),
     path('singers/', singer_controller.index, name='singers'),
     path('singer/add', singer_controller.add_singer, name='add_singer'),
     path('singer/edit/<int:singer_id>', singer_controller.edit_singer, name='edit_singer'),
