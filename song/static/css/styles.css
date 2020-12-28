@@ -49,16 +49,18 @@
     position: relative;
     z-index: 1;
     background: #FFFFFF;
-    max-width: 360px;
+    width: 400px;
+    height: 460px;
     margin: 0 auto 100px;
     padding: 38px;
     text-align: center;
+    border-radius: 1.5em;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   }
   .form input {
     font-family: "Roboto", sans-serif;
     outline: 0;
-    background-color: linear-gradient(to right, #304352, #d7d2cc);
+    background:linear-gradient(to right, #8a9096, #EEF2F3);
     width: 100%;
     border: 0;
     margin: 0 0 15px;
@@ -68,7 +70,7 @@
     font-weight: 700;
     letter-spacing: 1px;
     border-radius: 20px;
-    border:2px solid rgba(0, 0, 0, 0.07)
+
   }
   
 .form .message {
