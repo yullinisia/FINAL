@@ -58,7 +58,7 @@
   .form input {
     font-family: "Roboto", sans-serif;
     outline: 0;
-    background-color: gainsboro;
+    background-color: linear-gradient(to right, #304352, #d7d2cc);
     width: 100%;
     border: 0;
     margin: 0 0 15px;
