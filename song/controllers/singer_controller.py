@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from song.models.singer import Singer
 from django.forms.models import model_to_dict
@@ -9,9 +10,13 @@ from django.contrib.auth.decorators import login_required
 
 
 def index(request):
-    singers = Singer.objects.all()  
+    singers = Singer.objects.all()
+    paginator = Paginator(singers, 6)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     data = {
-        'singers': singers,
+        'page_obj': page_obj
     }
     return render(request, 'singer/singers.html', context=data)
 
