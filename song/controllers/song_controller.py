@@ -33,33 +33,3 @@ def add_song(request):
         'form': form
     }
     return render(request, 'song/song_form.html', context=context)
-
-
-def edit_song(request, song_id):
-    if request.method == 'POST':
-        song = Song.objects.get(pk=song_id)
-        form = SongForm(request.POST, instance=song)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('songs'))
-    else:
-        song = Song.objects.get(pk=song_id)
-        fields = model_to_dict(song)
-        form = SongForm(initial=fields, instance=song)
-    context = {
-        'form': form,
-        'type': 'edit',
-    }
-    return render(request, 'song/song_form.html', context=context)
-
-
-def delete_song(request, song_id):
-    song = Song.objects.get(pk=song_id)
-    if request.method == 'POST':
-        song.delete()
-        return HttpResponseRedirect(reverse('songs'))
-    context = {
-        'song': song,
-    }
-    return render(request, 'song/song_delete_form.html', context=context)
-

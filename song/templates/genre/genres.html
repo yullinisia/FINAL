@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    {% block title %}<title>ALBUM</title>{% endblock %}
+    {% block title %}<title>GENRE</title>{% endblock %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -48,25 +48,28 @@
         </nav>
         
         <div class="container-fluid">
-            <h1 style="padding: 15px;"> The Album's List: </h3>
+            <h1 style="padding: 15px;"> The Genre's List: </h3>
             <p>
-                <a href="{% url 'add_album' %}" style="padding: 12px;">
-                    <button type="button" class="btn btn-dark">Add Your Favorite Album</button>
+                <a href="{% url 'add_genre' %}" style="padding: 12px;">
+                    <button type="button" class="btn btn-dark">Add Your Favorite Genre</button>
                 </a></p>
             <div class="col-12">
                     <div class="row row-cols-1 row-cols-md-3"> 
-                    {% for album in page_obj %}
+                    {% for genre in page_obj %}
                     <div class="col mb-4">
                         <div class="card border-secondary h-200">
                                 <div class="card-body">
-                                    <b><p class="card-text">Album's Name : {{ album.name }}</p></b>
+                                    <b><p class="card-text">Genre's Name : {{ genre.name }}</p></b>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Genre's Description : {{ genre.description }}</p>
                                 </div>
                                 <div class="card-footer">
                                     <p>
-                                        <a href="{% url 'edit_album' album.id %}">
+                                        <a href="{% url 'edit_genre' genre.id %}">
                                             <button type="button" class="btn btn-info">Edit</button>
                                         </a>
-                                        <a href="{% url 'delete_album' album.id %}">
+                                        <a href="{% url 'delete_genre' genre.id %}">
                                             <button type="button" class="btn btn-danger">Delete</button>
                                         </a>
                                     </p>

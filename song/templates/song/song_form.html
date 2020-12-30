@@ -29,6 +29,8 @@
                 <li class="nav-item"><b><a class="nav-link"  href="{% url 'songs' %}">Song's</a></b></li>
                 <li class="nav-item"><b><a class="nav-link" href="{% url 'singers' %}">Singer's</a></b></li>
                 <li class="nav-item"><b><a class="nav-link" href="{% url 'albums' %}">Album's</a></b></li>
+                <li class="nav-item"><b><a class="nav-link" href="{% url 'genres' %}">Genre's</a></b></li>
+                <li class="nav-item"><b><a class="nav-link" href="{% url 'producers' %}">Producer's</a></b></li>
             </ul>
         </div>
             <div>
@@ -44,13 +46,8 @@
               {% endif %}
           </div>
         </nav>
-        {% if type != 'edit' %}
         <div class="sidebar-nav">
             <h1 style="color: black;">Add your recommended song</h1>
-            {% else %}
-            <div class="sidebar-nav">
-                <h1 style="color: black;">Edit your recommended song</h1>
-                {% endif %}
             </div>
             <form action="" method="POST">
                 <div class="sidebar-nav">
@@ -58,11 +55,7 @@
                     <table>
                         {{ form.as_table }}
                     </table>
-                    {% if type != 'edit' %}
                     <input type="submit" value="Add" class="btn btn-primary"/>
-                    {% else %}
-                    <input type="submit" value="Update" class="btn btn-primary"/>
-                    {% endif %}
                     <a href="{% url 'songs' %}" class="btn btn-danger">Cancel</a>
                 </div>
             </div>

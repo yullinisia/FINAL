@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     albums = Album.objects.all()
-    paginator = Paginator(albums, 3)
+    paginator = Paginator(albums, 6)
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)

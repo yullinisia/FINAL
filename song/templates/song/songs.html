@@ -29,6 +29,8 @@
                 <li class="nav-item"><b><a class="nav-link"  href="{% url 'songs' %}">Song's</a></b></li>
                 <li class="nav-item"><b><a class="nav-link" href="{% url 'singers' %}">Singer's</a></b></li>
                 <li class="nav-item"><b><a class="nav-link" href="{% url 'albums' %}">Album's</a></b></li>
+                <li class="nav-item"><b><a class="nav-link" href="{% url 'genres' %}">Genre's</a></b></li>
+                <li class="nav-item"><b><a class="nav-link" href="{% url 'producers' %}">Producer's</a></b></li>
             </ul>
         </div>
             <div>
@@ -47,12 +49,13 @@
         <div class="container-fluid">
             <div class="sidebar-nav">
             <h1 style="color:black">Recommended Song From Our Website :</h1>
+            <a type="button" class="btn btn-dark" href="{% url 'add_song' %}">Add Your Favorite Song</a>
             <p><form method="post" action="">
                 {% csrf_token %}
                 <input name="title" type="text" placeholder="song's title"/>
                 <button type="submit">Search</button>
             </form></p>
-            <table class="table table-sm table-bordered">
+            <table class="table table-striped table-dark table-bordered">
                 <thead>
                     <tr>
                         <td>Title</td>
@@ -69,7 +72,6 @@
                     {% endfor %}
                 </tbody>
             </table>
-            <a type="button" class="btn btn-dark" href="{% url 'add_song' %}">Add your favorite song</a>
         </body>
     </div>
 </div>

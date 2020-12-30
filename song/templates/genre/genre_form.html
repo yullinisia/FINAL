@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    {% block title %}<title>INDEX</title>{% endblock %}
+    {% block title %}<title>EDIT - ADD GENRE</title>{% endblock %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -20,17 +20,17 @@
         </style>
 </head>
 
-<body>
+<body style="background-color: silver;">
     <nav class="navbar navbar-expand-sm navbar-custom">
         <a class="navbar-brand" href="{% url 'index' %}"><b>ANY</b></a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item"><b><a class="nav-link" href="{% url 'record' %}">Record's</a></b></li>
-            <li class="nav-item"><b><a class="nav-link"  href="{% url 'songs' %}">Song's</a></b></li>
-            <li class="nav-item"><b><a class="nav-link" href="{% url 'singers' %}">Singer's</a></b></li>
-            <li class="nav-item"><b><a class="nav-link" href="{% url 'albums' %}">Album's</a></b></li>
-            <li class="nav-item"><b><a class="nav-link" href="{% url 'genres' %}">Genre's</a></b></li>
-            <li class="nav-item"><b><a class="nav-link" href="{% url 'producers' %}">Producer's</a></b></li>
+                <li class="nav-item"><b><a class="nav-link"  href="{% url 'songs' %}">Song's</a></b></li>
+                <li class="nav-item"><b><a class="nav-link" href="{% url 'singers' %}">Singer's</a></b></li>
+                <li class="nav-item"><b><a class="nav-link" href="{% url 'albums' %}">Album's</a></b></li>
+                <li class="nav-item"><b><a class="nav-link" href="{% url 'genres' %}">Genre's</a></b></li>
+                <li class="nav-item"><b><a class="nav-link" href="{% url 'producers' %}">Producer's</a></b></li>
             </ul>
         </div>
             <div>
@@ -46,32 +46,28 @@
               {% endif %}
           </div>
         </nav>
-        
-        <div id="demo" class="carousel slide" data-ride="carousel">
-            <ul class="carousel-indicators">
-                <li data-target="#demo" data-slide-to="0" class="active"></li>
-                <li data-target="#demo" data-slide-to="1"></li>
-                <li data-target="#demo" data-slide-to="2"></li>
-            </ul>
-            
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{STATIC_URL}}static/img/concert.jpg"/>
-                </div>
-                <div class="carousel-item">
-                    <img src="{{STATIC_URL}}static/img/concert2.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{STATIC_URL}}static/img/concert3.jpg">
+        {% if type != 'edit' %}
+        <div class="sidebar-nav">
+            <h1 style="color: black;">Add the song's genre</h1>
+            {% else %}
+            <div class="sidebar-nav">
+                <h1 style="color: black;">Edit the song's genre</h1>
+                {% endif %}
+            </div>
+            <form action="" method="POST">
+                <div class="sidebar-nav">
+                    {% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                    {% if type != 'edit' %}
+                    <input type="submit" value="Add" class="btn btn-primary"/>
+                    {% else %}
+                    <input type="submit" value="Update" class="btn btn-primary"/>
+                    {% endif %}
+                    <a href="{% url 'genres' %}" class="btn btn-danger">Cancel</a>
                 </div>
             </div>
-            
-            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#demo" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-        </div>   
+        </form>
 </body>
 </html>

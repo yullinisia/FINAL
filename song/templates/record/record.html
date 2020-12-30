@@ -29,6 +29,8 @@
                 <li class="nav-item"><b><a class="nav-link"  href="{% url 'songs' %}">Song's</a></b></li>
                 <li class="nav-item"><b><a class="nav-link" href="{% url 'singers' %}">Singer's</a></b></li>
                 <li class="nav-item"><b><a class="nav-link" href="{% url 'albums' %}">Album's</a></b></li>
+                <li class="nav-item"><b><a class="nav-link" href="{% url 'genres' %}">Genre's</a></b></li>
+                <li class="nav-item"><b><a class="nav-link" href="{% url 'producers' %}">Producer's</a></b></li>
             </ul>
         </div>
             <div>
@@ -44,25 +46,65 @@
               {% endif %}
           </div>
         </nav>
-        
+        <div class="container-fluid">
         <div class="sidebar-nav">
-            <h1 style="color: black;">Welcome to our webpage!</h1>
-            <p style="color:black">In this web, we will give you some recommend song from us.</p>
-            <strong style="color: black;">
-                <p>Group's Member :</p>
-                <p>1. Anggita Chaerani</p>
-                <p>2. Nadya Safira</p>
-                <p>3. Yulli Nisia</p>
-            </strong>
-            <h2 style="color: black;">List of all records :</h2>
-            <ul>
-                <li style="color:black"><strong>Songs:</strong> {{ num_songs }}</li>
-                <li style="color:black"><strong>Singers:</strong> {{ num_singers }}</li>
-                <li style="color:black"><strong>Albums:</strong> {{ num_albums }}</li>
-            </ul>
+            <h1 style="color: black;">Hello, Welcome To Our Website!</h1>
             <p>
-                Visit Count : {{ total_visit }}
-            </p>
+            <div class="media">
+                <img src="{% static 'img/icon.png' %}" class="mr-3 mt-8 rounded-circle" style="width:60px">
+                <div class="media-body">
+                  <h4>Created by :</h4>
+                  <p>1. Anggita Chaerani</p>
+                  <p>2. Nadya Safira</p>
+                  <p>3. Yulli Nisia</p>
+                </div>
+              </div>
+        </p> 
+        <h3 style="color: black;">Our website recent record's list :</h3>
+        <div class="card-deck cardhome">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Songs</h5>
+                  </div>
+                <div class="card-footer">
+                  <p class="card-text"><small>Number of songs: {{ num_songs }}</small></p>
+                </div>
+              </div>
+              <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Singers</h5>
+                  </div>
+                <div class="card-footer">
+                  <p class="card-text"><small>Number of singers: {{ num_singers }}</small></p>
+                </div>
+              </div>
+              <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Albums</h5>
+                  </div>
+                <div class="card-footer">
+                  <p class="card-text"><small>Number of albums: {{ num_albums }}</small></p>
+                </div>
+              </div>
+              <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Genres</h5>
+                  </div>
+                <div class="card-footer">
+                  <p class="card-text"><small>Number of genres: {{ num_genres }}</small></p>
+                </div>
+              </div>
+              <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Producers</h5>
+                  </div>
+                <div class="card-footer">
+                  <p class="card-text"><small>Number of producers: {{ num_producers }}</small></p>
+                </div>
+              </div>
+     </div>  
+     <div class="footer">
+        <p>You have visit our website for {{ total_visit }} times.</p>
+      </div> 
 </body>
-</div>
 </html>
