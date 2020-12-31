@@ -132,7 +132,7 @@ EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'ylnsiaaa@gmail.com'
-EMAIL_HOST_PASSWORD = 'Yulli2002'
+EMAIL_HOST_PASSWORD = 'finalproject'
 
 from django.core.mail import send_mail
 send_mail('Hello', 'you have successfully registered to our website',
