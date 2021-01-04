@@ -17,6 +17,14 @@
           width: 100%;
           height: 100%;
         }
+
+        h1{
+          color:#303030;
+          font-size: 22;
+          font-weight: normal;
+          font-variant: normal;
+          font-family: broadway;
+        }
         </style>
 </head>
 
@@ -49,7 +57,7 @@
         
         <div class="container-fluid">
             <div class="sidebar-nav">
-            <h1 style="color:black">Producer's List :</h1>
+            <h1>Producer's List :</h1>
             <a type="button" class="btn btn-dark" href="{% url 'add_producer' %}">Add Your Favorite Producer</a>
             <p><form method="post" action="">
                 {% csrf_token %}
