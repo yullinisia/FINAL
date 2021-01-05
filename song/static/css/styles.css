@@ -10,11 +10,13 @@
     color: rgba(255,255,255,.8);
 }
 /* change the link color */
-
+.navbar-custom .navbar-nav .nav-link {
+    color:#CDB5CD;
+}
 /* change the color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
-    color: #ffffff;
+    color:#FFE1FF	;
 }
 .register-page{
     width: 380px;
