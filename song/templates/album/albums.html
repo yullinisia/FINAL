@@ -19,16 +19,27 @@
         }
 
         h1{
-          color:#303030;
+          color: #67506e;
           font-size: 22;
           font-weight: normal;
           font-variant: normal;
           font-family: broadway;
         }
+        .btn-light {
+        color: #fff;
+        background-color:#D8BFD8;
+        border-color: #8B7B8B;
+        }
+        .card-body {
+          background-color: #D8BFD8!important;
+        }
+        .card-text {
+          color: #67506e!important;
+        }
         </style>
 </head>
 
-<body style="background-color: lightsteelblue;">
+<body style="background-color: #f5ebf7;">
     <nav class="navbar navbar-expand-sm navbar-custom">
         <a class="navbar-brand" href="{% url 'index' %}"><b>ANY</b></a>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -43,13 +54,13 @@
         </div>
             <div>
               {% if user.is_authenticated %}
-              <b style="color: silver">Hello, {{ user.get_username }} | </b>
-              <a type="button" class="btn btn-dark" href="{% url 'logout' %}?next={{ request.path }}">Log Out</a>
+              <b style="color: #EED2EE">Hello, {{ user.get_username }} | </b>
+              <a type="button" class="btn btn-light" href="{% url 'logout' %}?next={{ request.path }}">Log Out</a>
               {% else %}
               {% if 'login' in request.path %}
-              <a  type="button" class="btn btn-dark" href="{% url 'login' %}?next={{ '/' }}">Log In</a>
+              <a  type="button" class="btn btn-light" href="{% url 'login' %}?next={{ '/' }}">Log In</a>
               {% else %}
-              <a  type="button" class="btn btn-dark" href="{% url 'login' %}?next={{ request.path }}">Log In</a>
+              <a  type="button" class="btn btn-light" href="{% url 'login' %}?next={{ request.path }}">Log In</a>
               {% endif %}
               {% endif %}
           </div>
@@ -59,7 +70,7 @@
             <h1 style="padding: 15px;"> The Album's List: </h3>
             <p>
                 <a href="{% url 'add_album' %}" style="padding: 12px;">
-                    <button type="button" class="btn btn-dark">Add Your Favorite Album</button>
+                    <button type="button" class="btn btn-light">Add Your Favorite Album</button>
                 </a></p>
             <div class="col-12">
                     <div class="row row-cols-1 row-cols-md-3"> 
