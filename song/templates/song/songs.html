@@ -13,13 +13,8 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <style>
-        .carousel-inner img {
-          width: 100%;
-          height: 100%;
-        }
         .navbar-custom {
              background-color: #816687;
-            
         }
         h1{
           color:#67506e;
@@ -32,6 +27,9 @@
         color: #fff;
         background-color:#D8BFD8;
         border-color: #8B7B8B;
+        }
+        .table {
+          background-color: #D8BFD8!important;
         }
         </style>
 </head>
@@ -71,7 +69,7 @@
                 <input name="title" type="text" placeholder="song's title"/>
                 <button type="submit">Search</button>
             </form></p>
-            <table class="table table-light table-striped table-hover table-bordered ">
+            <table class="table table-striped table-hover table-bordered ">
                 <thead>
                     <tr>
                         <td>Title</td>
