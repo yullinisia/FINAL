@@ -16,7 +16,7 @@
 /* change the color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
-    color:#FFE1FF	;
+    color: #EED2EE;
 }
 .register-page{
     width: 380px;
@@ -27,9 +27,9 @@
 
 .register-header {
   padding-top: 0px;
-  color: #2f2f31;
+  color: #754C78;
   font-family: "Ubuntu",sans-serif;
-  font-weight: bold;
+  font-weight: 500, bold;
   font-size: 23px;
 }
 
@@ -45,10 +45,10 @@
   }
   .login-header {
     padding-top: 40px;
-    color: #2f2f31;
+    color:#754C78;
     font-family: "Ubuntu",sans-serif;
-    font-weight: bold;
-    font-size: 23px;
+    font-weight: 500, bold;
+    font-size: 25px;
 }
   .form {
     position: relative;
@@ -65,7 +65,7 @@
   .form input {
     font-family: "Roboto", sans-serif;
     outline: 0;
-    background:linear-gradient(to right, #8a9096, #EEF2F3);
+    background:linear-gradient(to right,#D8BFD8, #FFF0F5);
     width: 100%;
     border: 0;
     margin: 0 0 15px;
