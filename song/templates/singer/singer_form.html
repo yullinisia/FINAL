@@ -17,10 +17,15 @@
           width: 100%;
           height: 100%;
         }
+        .btn-dark {
+        color: #fff;
+        background-color:#D8BFD8;
+        border-color: #8B7B8B;
+        }
         </style>
 </head>
 
-<body style="background-color: silver;">
+<body style="background-color: #f5ebf7;">
     <nav class="navbar navbar-expand-sm navbar-custom">
         <a class="navbar-brand" href="{% url 'index' %}"><b>ANY</b></a>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -49,10 +54,10 @@
         
         {% if type != 'edit' %}
         <div class="sidebar-nav">
-            <h1 style="color: black;">Add the song's singer</h1>
+            <h1 style="color:#67506e; font-family: broadway;">Add the song's singer</h1>
             {% else %}
             <div class="sidebar-nav">
-                <h1 style="color: black;">Edit the song's singer</h1>
+                <h1 style="color: #67506e; font-family: broadway;">Edit the song's singer</h1>
                 {% endif %}
             </div>
             
