@@ -11,12 +11,12 @@
 }
 /* change the link color */
 .navbar-custom .navbar-nav .nav-link {
-    color:#CDB5CD;
+    color:white;
 }
 /* change the color of active or hovered links */
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
-    color: #EED2EE;
+    color:silver;
 }
 .register-page{
     width: 380px;
@@ -101,7 +101,7 @@
     bottom: 0;
     padding-top: 3px;
     width: 100%;
-    background-color: #9fa3a7;
+    background-color: #977c99;
     color: white;
     text-align: center;
  }

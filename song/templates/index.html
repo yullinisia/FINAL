@@ -21,12 +21,12 @@
             font-family: PitchWeb-Semibold,serif;
         }
         .navbar-custom {
-             background-color: #816687;
+             background-color:rgb(0, 0, 0);
             
         }
         .btn-light {
         color: #fff;
-        background-color:#D8BFD8;
+        background-color:rgb(172, 172, 172);
         border-color: #8B7B8B;
         }
         
@@ -48,7 +48,7 @@
         </div>
             <div>
               {% if user.is_authenticated %}
-              <b style="color: #EED2EE">Hello, {{ user.get_username }} | </b>
+              <b style="color:white">Hello, {{ user.get_username }} | </b>
               <a type="button" class="btn btn-light" href="{% url 'logout' %}?next={{ request.path }}">Log Out</a>
               {% else %}
               {% if 'login' in request.path %}
